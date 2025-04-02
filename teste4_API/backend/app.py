@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import csv
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -44,6 +45,6 @@ def search_operadoras():
     return jsonify(resultados)
 
 
-if __name__ == '__main__':
-    app.run(port=5000, host='localhost', debug=True)
-    # print(operadoras)
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
