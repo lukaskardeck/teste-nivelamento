@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import csv
 
 app = Flask(__name__)
+CORS(app)
 
 # Caminho do arquivo CSV
 CSV_PATH = "dados/cadastros_operadoras.csv"
